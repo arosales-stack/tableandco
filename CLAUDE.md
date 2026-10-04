@@ -214,12 +214,16 @@ Fonts `<link>` tags.
 - There is no GitHub Pages fallback in use — Cloudflare Pages is the live
   deployment target.
 
-## Working style on this project
+## Working style on this project (current stage, not a fixed rule)
 
-- Audra iterates fast and directly, often from her phone. Default to
-  **making the change and pushing to `main` immediately** rather than
-  proposing a branch/PR workflow, unless she asks for something riskier
-  (e.g. "ask first" cases like deleting content).
+- Right now, **push straight to `main`**, no branches/PRs — this is just
+  where the project is (pre-domain, Cloudflare Pages deploying straight
+  from `main`), not a permanent policy.
+- **This will change.** Once the site is connected to the real domain,
+  Audra has said she'll move to a `dev` branch workflow — expect a future
+  instruction to start branching changes and only pushing to `main` (or
+  merging) when she says so. When that happens, update this file instead
+  of relying on this note.
 - When a request is ambiguous about *which* collection/section "the first
   one" or "that one" refers to, infer from context (position in the grid,
   what was just discussed) but say plainly what you assumed.
