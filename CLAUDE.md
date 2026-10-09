@@ -38,7 +38,7 @@ Brand voice rules (from the brand book):
 2. **No ambient/automatic motion, with exactly one explicit exception:**
    - No autoplay carousels, no scroll-reveal-on-load animations, no marquee
      tickers, no load-triggered fades anywhere on the site.
-   - The **one exception**: the hero background is a 5-photo slideshow that
+   - The **one exception**: the hero background is a 3-photo slideshow that
      auto-advances every 3 seconds with no user controls (no arrows/dots).
      This was an explicit, deliberate request — don't "fix" it by removing
      the motion, and don't add more auto-motion elsewhere by precedent.
@@ -154,7 +154,7 @@ it into multiple files or add a bundler unless explicitly asked.
 
 Section order top to bottom:
 1. `<nav>` — fixed, logo + nav links (desktop only) + "Request a quote" CTA
-2. `<!-- HERO -->` — full-bleed 5-photo auto-slideshow, headline, CTAs
+2. `<!-- HERO -->` — full-bleed 3-photo auto-slideshow (full screen height on mobile), headline, CTAs
 3. `<!-- CHECKPOINTS -->` — dark trust-signal strip (4 short claims)
 4. `<!-- COLLECTIONS -->` — intro + horizontally-scrollable card row +
    inline-expand details per card (no modal)
