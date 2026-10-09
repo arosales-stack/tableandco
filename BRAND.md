@@ -62,13 +62,13 @@ Balance: Bone ~60, Ink ~24, Ash ~10, Blue ~6. On dark sections, buttons invert t
   - Nav: logo 1.05rem (0.95rem ≤480px), CTA 0.8rem (0.76rem ≤900px, 0.7rem ≤480px). Must stay on ONE line at 320/375/390/430px; verify with screenshots.
 
 ## 8. Art direction
-Editorial and calm. Natural daylight, generous negative space, muted bone–ink–blue palette; one setting or close detail per frame. Avoid fluorescent/flash, heavy filters, clutter, busy backgrounds behind the logo. Product photos are portrait and are never cropped (`object-fit: contain` in a 3:4 box, Warm White letterbox). Collections intro states "No AI used in these pics" (Audra's wording; real photography only).
+Editorial and calm. Natural daylight, generous negative space, muted bone–ink–blue palette; one setting or close detail per frame. Avoid fluorescent/flash, heavy filters, clutter, busy backgrounds behind the logo. Product photos are portrait and are never cropped (`object-fit: contain` in a 3:4 box, Warm White letterbox). Collections intro states "No AI here" (Audra's wording; real photography only).
 
 ## 9. Site structure (top to bottom)
 1. Fixed nav: logo, links (desktop only), "Request a quote".
 2. Hero: full-bleed 3-photo slideshow, auto-advances every 3s, no controls (the single allowed ambient motion), dark gradient for legibility, eyebrow, headline, copy, two CTAs.
 3. Checkpoints: dark strip with 4 trust claims (every piece inspected, delivered/styled/collected, we wash every glass & plate, rooted in Cypress & Katy). Left-aligned, NOT centered; generous top/bottom padding (3.25rem desktop, 2.5rem mobile); stacked in a column on mobile.
-4. Collections: eyebrow, headline "Every piece has a story. *Yours is next.*", the line "No AI used in these pics", then cards.
+4. Collections: eyebrow, headline "Every piece has a story. *Yours is next.*", the line "No AI here", then cards.
 5. Why Table & Co. (stays after Collections).
 6. Inquiry form.
 7. Footer.

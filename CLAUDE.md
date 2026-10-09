@@ -109,7 +109,7 @@ Brand voice rules (from the brand book):
 
 Body copy >= 1rem, secondary text >= ~0.875rem, uppercase labels >= ~0.76rem,
 form inputs 1rem (prevents iOS zoom). Collections intro line reads
-"No AI used in these pics" (keep it).
+"No AI here" (keep it).
 
 ## Verifying changes — don't just eyeball CSS
 
