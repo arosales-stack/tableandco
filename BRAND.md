@@ -84,7 +84,7 @@ Six collections, shown as e-commerce-style cards (not one big carousel; parallel
 | # | Name | Status |
 |---|---|---|
 | 1 | Amberidge Collection | Real photos (6; order: medium, closer, further, closer, further, detail). Place-settings count unknown, shows "—"; ask Audra |
-| 2 | The Harvest Table | Placeholder photos; 16 place settings, stoneware, autumn |
+| 2 | The Harvest Fête (renamed from The Harvest Table) | 7 real photos; 16 place settings, stoneware, autumn |
 | 3 | The Gilded Edge | Placeholder photos; 8 place settings, gold-rimmed, crystal, weddings |
 | 4 | The Willow Set | Placeholder photos; 10 place settings, blue-and-white transferware (name/copy invented by Claude as a Willow Blue tie-in, flagged to Audra) |
 | 5 | Collection Five | Full placeholder, awaiting real details |
