@@ -66,7 +66,7 @@ Editorial and calm. Natural daylight, generous negative space, muted boneâ€“inkâ
 
 ## 9. Site structure (top to bottom)
 1. Fixed nav: logo, links (desktop only), "Request a quote".
-2. Hero: full-bleed 3-photo slideshow, auto-advances every 3s, no controls (the single allowed ambient motion), dark gradient for legibility, eyebrow, headline, copy, two CTAs.
+2. Hero: full-bleed 4-photo slideshow, auto-advances every 3s, no controls (the single allowed ambient motion), dark gradient for legibility, eyebrow, headline, copy, two CTAs.
 3. Checkpoints: dark strip with 4 trust claims (every piece inspected, delivered/styled/collected, we wash every glass & plate, rooted in Cypress & Katy). Left-aligned, NOT centered; generous top/bottom padding (3.25rem desktop, 2.5rem mobile); stacked in a column on mobile.
 4. Collections: eyebrow, headline "Every piece has a story. *Yours is next.*", the line "No AI here", then cards.
 5. Why Table & Co. (stays after Collections).
