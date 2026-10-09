@@ -91,7 +91,23 @@
     animation: heroScroll var(--hero-scroll-time, 40s) linear infinite;
   }
   @keyframes heroScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.3rem)); } }
-  @media (prefers-reduced-motion: reduce) { .hero-strip-track { animation: none; } }
+  .hero-cols { display: none; }
+  @media (prefers-reduced-motion: reduce) { .hero-strip-track, .hero-col-track { animation: none; } }
+  /* Desktop: text on the left half, two vertical photo columns drifting in opposite directions on the right. */
+  @media (min-width: 901px) {
+    .hero { flex-direction: row; padding-top: 0; min-height: 100vh; }
+    .hero-strip { display: none; }
+    .hero-content { order: 1; flex: 0 0 50%; max-width: none; margin: 0; padding: 7rem 3rem 4rem 5rem; align-self: center; }
+    .hero-cols { order: 2; display: flex; flex: 0 0 50%; gap: 0.6rem; margin-top: 5.25rem; position: relative; padding-right: 0.6rem; }
+    .hero-col { flex: 1; position: relative; overflow: hidden; }
+    .hero-col-track { position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .hero-col-track.up { animation: heroUp var(--hero-col-time, 60s) linear infinite; }
+    .hero-col-track.down { animation: heroDown var(--hero-col-time, 60s) linear infinite; }
+    .hero-col-track .hero-bg { width: 100%; height: auto; aspect-ratio: 3 / 4; }
+    .hero .hero-h1 { font-size: clamp(2.6rem, 4.6vw, 5rem); }
+  }
+  @keyframes heroUp { from { transform: translateY(0); } to { transform: translateY(calc(-50% - 0.3rem)); } }
+  @keyframes heroDown { from { transform: translateY(calc(-50% - 0.3rem)); } to { transform: translateY(0); } }
   .hero-bg {
     height: 100%; width: auto; aspect-ratio: 3 / 4; flex-shrink: 0;
     object-fit: cover; display: block; background: #2a2825;
@@ -482,6 +498,7 @@
       <a class="btn-ghost" href="#collections">Browse the collections</a>
     </div>
   </div>
+  <div class="hero-cols" aria-hidden="true"><div class="hero-col"><div class="hero-col-track up" id="heroColA"></div></div><div class="hero-col"><div class="hero-col-track down" id="heroColB"></div></div></div>
 </section>
 
 <!-- CHECKPOINTS -->
@@ -913,10 +930,21 @@
   // Hero photo strip — glides continuously (smooth, no pauses), no user controls.
   const track = document.getElementById('heroTrack');
   if (!track) return;
-  Array.from(track.children).forEach(function(img) { track.appendChild(img.cloneNode(true)); }); // seamless loop
+  const originals = Array.from(track.children);
+  // Desktop columns reuse the same photos (copied in the browser, so the file doesn't grow).
+  [['heroColA', [0,1,2,3,4,5,6,7,8]], ['heroColB', [4,5,6,7,8,0,1,2,3]]].forEach(function(cfg) {
+    const col = document.getElementById(cfg[0]);
+    if (!col) return;
+    cfg[1].concat(cfg[1]).forEach(function(k) { col.appendChild(originals[k].cloneNode(true)); });
+  });
+  originals.forEach(function(img) { track.appendChild(img.cloneNode(true)); }); // seamless loop
   function setSpeed() {
     const setWidth = track.scrollWidth / 2;
-    track.style.setProperty('--hero-scroll-time', (setWidth / 55) + 's'); // ~55 px per second
+    if (setWidth > 0) track.style.setProperty('--hero-scroll-time', (setWidth / 55) + 's'); // ~55 px per second
+    ['heroColA', 'heroColB'].forEach(function(id) {
+      const col = document.getElementById(id);
+      if (col && col.scrollHeight > 0) col.style.setProperty('--hero-col-time', (col.scrollHeight / 2 / 45) + 's'); // ~45 px per second
+    });
   }
   setSpeed();
   window.addEventListener('load', setSpeed);
