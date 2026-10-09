@@ -97,14 +97,15 @@
   @media (min-width: 901px) {
     .hero { flex-direction: row; padding-top: 0; min-height: 100vh; }
     .hero-strip { display: none; }
-    .hero-content { order: 1; flex: 0 0 50%; max-width: none; margin: 0; padding: 7rem 3rem 4rem 5rem; align-self: center; }
-    .hero-cols { order: 2; display: flex; flex: 0 0 50%; gap: 0.6rem; margin-top: 5.25rem; position: relative; padding-right: 0.6rem; }
+    .hero .hero-content { order: 1; flex: 0 0 42%; max-width: none; margin: 0; padding: 4.6rem 3rem 0 3rem; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .hero .hero-content > * { width: 100%; max-width: 30rem; }
+    .hero-cols { order: 2; display: flex; flex: 0 0 58%; gap: 0.6rem; margin-top: 4.6rem; position: relative; padding-right: 0.6rem; }
     .hero-col { flex: 1; position: relative; overflow: hidden; }
     .hero-col-track { position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; gap: 0.6rem; }
     .hero-col-track.up { animation: heroUp var(--hero-col-time, 60s) linear infinite; }
     .hero-col-track.down { animation: heroDown var(--hero-col-time, 60s) linear infinite; }
     .hero-col-track .hero-bg { width: 100%; height: auto; aspect-ratio: 3 / 4; }
-    .hero .hero-h1 { font-size: clamp(2.6rem, 4.6vw, 5rem); }
+    .hero .hero-h1 { font-size: clamp(2.4rem, 3.9vw, 4.6rem); }
   }
   @keyframes heroUp { from { transform: translateY(0); } to { transform: translateY(calc(-50% - 0.3rem)); } }
   @keyframes heroDown { from { transform: translateY(calc(-50% - 0.3rem)); } to { transform: translateY(0); } }
