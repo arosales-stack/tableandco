@@ -174,8 +174,8 @@ Don't rebuild it.
 | 1 | Amberidge Collection | **Real photos** (6, ordered medium→closer→further→closer→further→detail per explicit request). Place-settings count still unconfirmed — ask Audra, don't guess. |
 | 2 | The Harvest Fête (renamed from The Harvest Table) | 7 real photos (brown transferware, rattan chargers, chrysanthemums, roses); copy below predates photos and may not match, has real copy (16 place settings, stoneware/autumn) |
 | 3 | The Gilded Edge | Placeholder photos, has real copy (8 place settings, gold-rimmed/crystal/weddings) |
-| 4 | The Willow Set | Placeholder photos, has real copy (10 place settings, blue-and-white transferware — name/copy invented by Claude as a tie-in to the Willow Blue brand color, flagged to Audra at the time) |
-| 5 | Collection Five | Full placeholder — no real name/photos/details given yet |
+| 4 | The Willow Set | 4 real photos (blue-and-white, golden retriever shot first), has real copy (10 place settings, blue-and-white transferware — name/copy invented by Claude as a tie-in to the Willow Blue brand color, flagged to Audra at the time) |
+| 5 | The Garden Party (named by Audra) | 4 real photos (garden table first, then plate close-ups); copy and counts still placeholder |
 | 6 | Collection Six | Full placeholder — no real name/photos/details given yet |
 
 Each card = one `.collection-card` containing a `.carousel` (own photo
