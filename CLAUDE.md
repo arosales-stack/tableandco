@@ -4,6 +4,8 @@ This repo is a single static website for **Table & Co.**, a vintage tableware
 rental business in Cypress & Katy, Texas. Read this whole file before making
 changes — it captures hard-won rules from earlier sessions, not just facts.
 
+> Full brand, typography, colour, and collections reference: see `BRAND.md`.
+
 ## What the business actually does
 
 Table & Co. rents verified, inspected vintage china, crystal, and silverware
