@@ -103,6 +103,12 @@ Brand voice rules (from the brand book):
     Each card keeps its own small internal photo carousel, but that's one
     layer, not nested inside a second horizontal-scroll layer.
 
+## Typography minimums (Audra: never make text tiny)
+
+Body copy >= 1rem, secondary text >= ~0.875rem, uppercase labels >= ~0.76rem,
+form inputs 1rem (prevents iOS zoom). Collections intro line reads
+"No AI used in these pics" (keep it).
+
 ## Verifying changes — don't just eyeball CSS
 
 Chromium + Playwright are preinstalled in the Claude session
@@ -207,10 +213,9 @@ Fonts `<link>` tags.
   dashboard connection is first disconnected — check with Audra before
   adding any `.github/workflows/` deploy step.
 - Claude's GitHub App has push access to this repo (was explicitly granted
-  via `https://github.com/apps/claude/installations/select_target`). Normal
-  workflow: edit `index.html` directly, commit, `git push origin main` — no
-  feature branches, no PRs. Audra has consistently asked for direct-to-main
-  pushes on this project, not a dev/review branch flow.
+  via `https://github.com/apps/claude/installations/select_target`). Current
+  workflow: edit `index.html` directly, commit, `git push origin main`. This is
+  a current-stage convention, not a rule (see Working style below).
 - There is no GitHub Pages fallback in use — Cloudflare Pages is the live
   deployment target.
 
