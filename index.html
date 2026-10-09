@@ -95,6 +95,11 @@
   @media (prefers-reduced-motion: reduce) { .hero-strip-track, .hero-col-track { animation: none; } }
   /* Desktop: text on the left half, two vertical photo columns drifting in opposite directions on the right. */
   @media (min-width: 901px) {
+    .hero .hero-checks { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(241,236,228,0.15); }
+    .hero .hero-checks .checkpoint { font-size: 0.85rem; }
+    .hero .btn-ghost { display: inline-flex; align-self: flex-start; width: auto; background: var(--paper); color: var(--ink); border: 1px solid var(--paper); padding: 1rem 2.2rem; font-weight: 500; transition: background .25s, color .25s; }
+    .hero .btn-ghost:hover { gap: 0.5rem; background: transparent; color: var(--paper); }
+    body .checkpoints-wrap { display: none; }
     .hero { flex-direction: row; padding-top: 0; min-height: 100vh; }
     .hero-strip { display: none; }
     .hero .hero-content { order: 1; flex: 0 0 42%; max-width: none; margin: 0; padding: 4.6rem 3rem 0 3rem; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -155,6 +160,7 @@
   .btn-ghost:hover { gap: 0.9rem; }
 
   /* ---------- CHECKPOINTS (part of the hero block, dark band beneath it) ---------- */
+  .hero-checks { display: none; }
   .checkpoints-wrap {
     background: #151412;
     border-bottom: 1px solid rgba(241,236,228,0.1);
@@ -497,6 +503,12 @@
     <p class="hero-p">We rent real vintage china, crystal, and silverware for weddings, showers, and dinner parties — delivered, styled, and washed after. You host. We handle the rest.</p>
     <div class="hero-actions">
       <a class="btn-ghost" href="#collections">Browse the collections</a>
+    </div>
+    <div class="hero-checks">
+      <div class="checkpoint"><span class="check">&amp;</span>Every piece inspected — no chips, no cracks</div>
+      <div class="checkpoint"><span class="check">&amp;</span>Delivered, styled &amp; collected</div>
+      <div class="checkpoint"><span class="check">&amp;</span>We wash every glass &amp; plate</div>
+      <div class="checkpoint"><span class="check">&amp;</span>Rooted in Cypress &amp; Katy</div>
     </div>
   </div>
   <div class="hero-cols" aria-hidden="true"><div class="hero-col"><div class="hero-col-track up" id="heroColA"></div></div><div class="hero-col"><div class="hero-col-track down" id="heroColB"></div></div></div>
