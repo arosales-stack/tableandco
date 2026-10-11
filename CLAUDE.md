@@ -111,6 +111,32 @@ Body copy >= 1rem, secondary text >= ~0.875rem, uppercase labels >= ~0.76rem,
 form inputs 1rem (prevents iOS zoom). Collections intro line reads
 "No AI here" (keep it).
 
+## MANDATORY editing protocol (added after the Oct 11 broken-carousel incident)
+
+A blind string slice left `<span class="` unclosed in the Cherub Bleu dots, which
+swallowed the nav and merged two cards on the live site. These rules are not optional:
+
+1. **Read before you edit.** At the start of any session that will change
+   `index.html`, read the ENTIRE file once (stripped copy, base64 removed — see
+   below) before the first edit. Re-read the affected card/section's markup again
+   right before editing it. No editing from memory or from a summary.
+2. **Never edit by character position.** No `s[:k][:-n]`, no slicing by offsets,
+   no regex that deletes "the last N chars". Replace whole, exact, asserted
+   blocks (e.g. an entire `.carousel-dots` div) anchored on unique surrounding
+   markup, and assert `count == 1` before replacing.
+3. **Run `python3 scripts/check_site.py` before every commit.** It parses the
+   HTML (tag balance), checks every card has matching img/dot counts, 2 arrows,
+   one carousel and no nesting, 6 cards, no horizontal overflow at 320/390/1440,
+   and no JS errors. It must print `OK`. If it prints `FAIL`, do not commit.
+4. **Look at the result.** Screenshot (390px) every card you touched AND the card
+   below it. Counts passing is not proof the page looks right.
+5. **Check which branch you are on** (`git branch --show-current`) before
+   committing, and make changes on `main` unless told otherwise.
+6. **Verify the push landed:** after pushing, run `git ls-remote origin` and
+   confirm `main` (and `dev`) show the new commit SHA, then check the Cloudflare
+   check-run for that SHA. Never report "live" before that.
+7. Never touch the site unless Audra explicitly asks (unchanged rule).
+
 ## Verifying changes — don't just eyeball CSS
 
 Chromium + Playwright are preinstalled in the Claude session
