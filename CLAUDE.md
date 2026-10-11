@@ -154,7 +154,7 @@ it into multiple files or add a bundler unless explicitly asked.
 
 Section order top to bottom:
 1. `<nav>` — fixed, logo + nav links (desktop only) + "Request a quote" CTA
-2. `<!-- HERO -->` — full-bleed 4-photo auto-slideshow (full screen height on mobile), headline, CTAs
+2. `<!-- HERO -->` — full-bleed 6-photo auto-slideshow (full screen height on mobile), headline, CTAs
 3. `<!-- CHECKPOINTS -->` — dark trust-signal strip (4 short claims)
 4. `<!-- COLLECTIONS -->` — intro + horizontally-scrollable card row +
    inline-expand details per card (no modal)
