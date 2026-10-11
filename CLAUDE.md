@@ -174,7 +174,7 @@ Don't rebuild it.
 | 1 | Amberidge Collection | 6 real photos. Place-settings count unconfirmed — ask Audra. |
 | 2 | The Harvest Fête (brown transferware) | 5 real photos (brown transferware). Copy (16 place settings, stoneware/autumn) predates the photos. |
 | 3 | Versailles Garland Collection (was placeholder "The Gilded Edge") |  5 real photos (green linen, Haviland Eugenie urn plates). Place settings / occasions not given — shown as `—`. |
-| 4 | Cherub Bleu Collection (was The Willow Set) |  7 real photos. Copy (10 place settings) was invented earlier — unconfirmed. |
+| 4 | Cherub Bleu Collection (was The Willow Set) |   6 real photos. Copy (10 place settings) was invented earlier — unconfirmed. |
 | 5 | Garden Party Collection | 6 real photos. Copy/counts still placeholder. |
 | 6 | The Rose Garden Collection | Name given; placeholder — no photos/details yet (Audra will send them). |
 
