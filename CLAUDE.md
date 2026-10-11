@@ -172,13 +172,13 @@ Don't rebuild it.
 | # | Name | Status |
 |---|------|--------|
 | 1 | Amberidge Collection | 6 real photos. Place-settings count unconfirmed — ask Audra. |
-| 2 | The Rose Garden Collection (was Harvest Fête) | 7 real photos (brown transferware). Copy (16 place settings, stoneware/autumn) predates the photos. |
+| 2 | The Harvest Fête (brown transferware; Audra's OneDrive folder is named "The Rose Garden") | 7 real photos (brown transferware). Copy (16 place settings, stoneware/autumn) predates the photos. |
 | 3 | Versailles Garland Collection (was placeholder "The Gilded Edge") | 3 real photos (green linen, Haviland Eugenie urn plates). Place settings / occasions not given — shown as `—`. |
 | 4 | Cherub Bleu Collection (was The Willow Set) | 6 real photos. Copy (10 place settings) was invented earlier — unconfirmed. |
 | 5 | Garden Party Collection | 5 real photos. Copy/counts still placeholder. |
 | 6 | Collection Six | Placeholder — no name/photos yet. |
 
-Names follow Audra's OneDrive folders (Amberidge, The Rose Garden, Cherub Bleu, Versailles Garland, Garden Party). Never touch the site without an explicit instruction from Audra.
+Names follow Audra's OneDrive folders (Amberidge, Rose Garden = site name The Harvest Fête, Cherub Bleu, Versailles Garland, Garden Party). Never touch the site without an explicit instruction from Audra.
 
 Each card = one `.collection-card` containing a `.carousel` (own photo
 carousel, arrows+dots consolidated into one bottom `.carousel-nav` bar —
