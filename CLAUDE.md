@@ -105,6 +105,8 @@ Brand voice rules (from the brand book):
     Each card keeps its own small internal photo carousel, but that's one
     layer, not nested inside a second horizontal-scroll layer.
 
+Collection short descriptions (`.collection-desc`) are capped at 300 characters (Audra).
+
 ## Typography minimums (Audra: never make text tiny)
 
 Body copy >= 1rem, secondary text >= ~0.875rem, uppercase labels >= ~0.76rem,
@@ -197,11 +199,11 @@ Don't rebuild it.
 
 | # | Name | Status |
 |---|------|--------|
-| 1 | Amberidge Collection | 6 real photos. Place-settings count unconfirmed — ask Audra. |
-| 2 | The Harvest Fête (brown transferware) | 5 real photos (brown transferware). Copy (16 place settings, stoneware/autumn) predates the photos. |
-| 3 | Versailles Garland Collection (was placeholder "The Gilded Edge") |   4 real photos (green linen, Haviland Eugenie urn plates). Place settings / occasions not given — shown as `—`. |
-| 4 | Cherub Bleu Collection (was The Willow Set) |     6 real photos. Copy (10 place settings) was invented earlier — unconfirmed. |
-| 5 | Garden Party Collection | 6 real photos. Copy/counts still placeholder. |
+| 1 | Amberidge Collection | 6 real photos. Copy filled from Audra's text (cranberry-red Woods Ware transferware, Staffordshire) — NOTE the current photos show green-rimmed floral china, not red transferware. Place-settings count unconfirmed. |
+| 2 | The Harvest Fête (brown transferware) | 5 real photos (brown transferware). Copy (16 place settings, stoneware/autumn) predates the photos; no text from Audra yet. |
+| 3 | Versailles Garland Collection | 4 real photos. Copy from Audra's text (Haviland & Co. Limoges, early 1900s, 65 pieces). Shown as "65 pieces", not place settings. |
+| 4 | Cherub Bleu Collection | 6 real photos. Copy from Audra's text (vintage blue & white, made in England; date unconfirmed so not shown). Place-settings count unconfirmed (earlier "10" was invented, removed). |
+| 5 | Garden Party Collection | 6 real photos. Copy/occasions from Audra's text ("mix & match", story still to be defined). Place-settings count unconfirmed. |
 | 6 | The Rose Garden Collection | 4 real photos (pink-bordered rose china on woven placemats). Copy/counts still placeholder. |
 
 Names follow Audra's OneDrive folders (Amberidge, Rose Garden, Cherub Bleu, Versailles Garland, Garden Party). Never touch the site without an explicit instruction from Audra.
