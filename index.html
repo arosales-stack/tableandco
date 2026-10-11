@@ -138,15 +138,17 @@
   }
   .checkpoints-inner {
     max-width: 1500px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3.5rem;
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.75rem 2.25rem;
   }
-  .checkpoint { display: flex; align-items: flex-start; gap: 1.1rem; color: var(--paper); }
+  .checkpoint {
+    display: flex; align-items: center; gap: 0.85rem;
+    font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--paper);
+  }
   .checkpoint .check {
     font-family: "Bodoni Moda", serif; font-style: italic;
-    color: var(--blue); font-size: 1.6rem; line-height: 1; padding-top: 0.1rem;
+    color: var(--blue); font-size: 1.4rem; line-height: 1;
   }
-  .cp-title { font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; }
-  .cp-text { font-size: 1rem; line-height: 1.55; color: rgba(241,236,228,0.72); margin: 0; }
 
   /* ---------- SECTIONS ---------- */
   .section { padding: 7rem 5rem; max-width: 1500px; margin: 0 auto; }
@@ -356,7 +358,7 @@
     .form-row { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; }
     .checkpoints-wrap { padding: 2.5rem 1.5rem; }
-    .checkpoints-inner { grid-template-columns: 1fr; gap: 1.75rem; }
+    .checkpoints-inner { flex-direction: column; gap: 1.5rem; }
     .collections-intro { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   }
 
@@ -469,9 +471,10 @@
 <!-- CHECKPOINTS -->
 <div class="checkpoints-wrap">
   <div class="checkpoints-inner">
-    <div class="checkpoint"><span class="check">01</span><div><div class="cp-title">Verified</div><p class="cp-text">Every piece is inspected and authenticated before it reaches your table.</p></div></div>
-    <div class="checkpoint"><span class="check">02</span><div><div class="cp-title">Full service</div><p class="cp-text">We deliver, we collect, we wash everything.</p></div></div>
-    <div class="checkpoint"><span class="check">03</span><div><div class="cp-title">Cypress &amp; Katy</div><p class="cp-text">We deliver across Cypress, Katy, and greater NW Houston.</p></div></div>
+    <div class="checkpoint"><span class="check">&amp;</span>Every piece inspected — no chips, no cracks</div>
+    <div class="checkpoint"><span class="check">&amp;</span>Delivered, styled &amp; collected</div>
+    <div class="checkpoint"><span class="check">&amp;</span>We wash every glass &amp; plate</div>
+    <div class="checkpoint"><span class="check">&amp;</span>Rooted in Cypress &amp; Katy</div>
   </div>
 </div>
 
@@ -743,22 +746,22 @@
       <li class="why-item">
         <span class="why-no">01</span>
         <div class="why-item-text">
-          <h4>Verified, not flea-market</h4>
-          <p>Every piece is inspected and authenticated before it reaches your table. No chips, no cracks, no guesswork.</p>
+          <h4>Verified</h4>
+          <p>Every piece is inspected and authenticated before it reaches your table.</p>
         </div>
       </li>
       <li class="why-item">
         <span class="why-no">02</span>
         <div class="why-item-text">
-          <h4>Full service, zero cleanup</h4>
-          <p>We deliver, we collect, we wash everything. Your job ends when the last guest leaves.</p>
+          <h4>Full service</h4>
+          <p>We deliver, we collect, we wash everything.</p>
         </div>
       </li>
       <li class="why-item">
         <span class="why-no">03</span>
         <div class="why-item-text">
-          <h4>Rooted in Cypress &amp; Katy</h4>
-          <p>We deliver across Cypress, Katy, and greater NW Houston. We know the neighborhoods, the venues, and the people we set tables for.</p>
+          <h4>Cypress &amp; Katy</h4>
+          <p>We deliver across Cypress, Katy, and greater NW Houston.</p>
         </div>
       </li>
     </ul>
