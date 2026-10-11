@@ -202,7 +202,7 @@ Don't rebuild it.
 | 3 | Versailles Garland Collection (was placeholder "The Gilded Edge") |   4 real photos (green linen, Haviland Eugenie urn plates). Place settings / occasions not given — shown as `—`. |
 | 4 | Cherub Bleu Collection (was The Willow Set) |     6 real photos. Copy (10 place settings) was invented earlier — unconfirmed. |
 | 5 | Garden Party Collection | 6 real photos. Copy/counts still placeholder. |
-| 6 | The Rose Garden Collection | 3 real photos (pink-bordered rose china on woven placemats). Copy/counts still placeholder. |
+| 6 | The Rose Garden Collection | 4 real photos (pink-bordered rose china on woven placemats). Copy/counts still placeholder. |
 
 Names follow Audra's OneDrive folders (Amberidge, Rose Garden, Cherub Bleu, Versailles Garland, Garden Party). Never touch the site without an explicit instruction from Audra.
 
