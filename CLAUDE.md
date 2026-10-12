@@ -95,14 +95,13 @@ Brand voice rules (from the brand book):
    touch nav sizing, **re-verify with a screenshot at those widths** rather
    than eyeballing the CSS — guessing got this wrong twice already.
 
-10. **Desktop collections-row nav ("← Previous / Next →") is
-    center-aligned**, not right-aligned — `.collections-nav` uses
-    `justify-content: center`.
-    Desktop also has round ink arrows (`.collections-side`) at the left/right
-    of the photos, because the text nav sits below the fold on short screens.
+10. **Desktop collections-row nav = round ink side arrows only**
+    (`.collections-side`, left/right of the photos). The "← Previous / Next →"
+    text nav under the cards was removed at Audra's request — don't re-add it.
     On desktop (≥901px) cards share rows via CSS subgrid (photo / title / text /
     meta / details) so "Learn more" and the piece count align across cards.
     Checkpoints strip is one line at ≥1200px; hero is `min-height: 100vh`.
+    Instagram handle: **@table.andcompany**.
 
 11. **Mobile has no "carousel of carousels."** At ≤900px the collections
     row (`.collections-grid`) switches from horizontal-scroll to normal

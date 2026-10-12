@@ -197,15 +197,6 @@
     background: linear-gradient(90deg, rgba(241,236,228,0) 0%, var(--card) 78%);
     pointer-events: none;
   }
-  .collections-nav { display: flex; justify-content: center; gap: 2.25rem; margin-top: 1.25rem; }
-  .collections-nav-btn {
-    font-family: "Archivo", sans-serif; font-weight: 500;
-    font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--ink); background: none; border: none; padding: 0 0 0.3rem;
-    cursor: pointer; border-bottom: 1px solid var(--line); transition: border-color 0.2s, opacity 0.2s;
-  }
-  .collections-nav-btn:hover { border-color: var(--ink); }
-  .collections-nav-btn:disabled { opacity: 0.35; cursor: default; border-color: var(--line); }
   .collection-body { padding: 1.5rem 1.5rem 1.75rem; }
   .collection-head {
     display: flex; align-items: baseline; justify-content: space-between;
@@ -390,7 +381,7 @@
     .section, .why-section, .inquiry-section { padding: 4rem 1.5rem; }
     .collections-grid { flex-wrap: wrap; overflow-x: visible; scroll-snap-type: none; }
     .collection-card { flex: 1 1 100%; }
-    .collections-fade, .collections-nav { display: none; }
+    .collections-fade { display: none; }
     .why-section, .inquiry-inner { grid-template-columns: 1fr; gap: 3rem; }
     .form-row { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; }
@@ -777,10 +768,6 @@
       <button class="collections-side prev" id="collectionsSidePrev" type="button" onclick="scrollCollections(-1)" aria-label="Previous collections">&#8249;</button>
       <button class="collections-side next" id="collectionsSideNext" type="button" onclick="scrollCollections(1)" aria-label="Next collections">&#8250;</button>
     </div>
-    <div class="collections-nav">
-      <button class="collections-nav-btn" id="collectionsPrev" type="button" onclick="scrollCollections(-1)">&larr; Previous</button>
-      <button class="collections-nav-btn" id="collectionsNext" type="button" onclick="scrollCollections(1)">Next &rarr;</button>
-    </div>
     <div style="text-align:center;margin-top:3.5rem;">
       <a class="btn-primary" href="#inquire">Inquire about availability</a>
     </div>
@@ -828,7 +815,7 @@
       <p>Tell us a little about your event and we'll be in touch within 48 hours with availability, collections that suit your vision, and a custom quote.</p>
       <div class="inquiry-details">
         <div class="inquiry-detail"><span>Location</span><span>Cypress &amp; Katy, TX · NW Houston</span></div>
-        <div class="inquiry-detail"><span>Instagram</span><span>@tableandco.tx</span></div>
+        <div class="inquiry-detail"><span>Instagram</span><span>@table.andcompany</span></div>
         <div class="inquiry-detail"><span>Response</span><span>Within 48 hours</span></div>
       </div>
     </div>
@@ -859,7 +846,7 @@
 <footer>
   <div class="footer-logo">Table <span class="amp">&amp;</span> Co</div>
   <div class="footer-mid">Verified Vintage Tableware · Cypress &amp; Katy, Texas · © 2026</div>
-  <a class="footer-ig" href="#">@tableandco.tx</a>
+  <a class="footer-ig" href="https://www.instagram.com/table.andcompany/" target="_blank" rel="noopener">@table.andcompany</a>
 </footer>
 
 
@@ -982,17 +969,13 @@
   };
   (function() {
     const grid = document.getElementById('collectionsGrid');
-    const prevBtn = document.getElementById('collectionsPrev');
-    const nextBtn = document.getElementById('collectionsNext');
     const sidePrev = document.getElementById('collectionsSidePrev');
     const sideNext = document.getElementById('collectionsSideNext');
-    if (!grid || !prevBtn || !nextBtn) return;
+    if (!grid || !sidePrev || !sideNext) return;
     function updateNavState() {
       const maxScroll = grid.scrollWidth - grid.clientWidth;
-      prevBtn.disabled = grid.scrollLeft <= 4;
-      nextBtn.disabled = grid.scrollLeft >= maxScroll - 4;
-      if (sidePrev) sidePrev.disabled = prevBtn.disabled;
-      if (sideNext) sideNext.disabled = nextBtn.disabled;
+      sidePrev.disabled = grid.scrollLeft <= 4;
+      sideNext.disabled = grid.scrollLeft >= maxScroll - 4;
     }
     grid.addEventListener('scroll', updateNavState);
     window.addEventListener('resize', updateNavState);
