@@ -27,13 +27,13 @@ Brand voice rules (from the brand book):
 ## Hard rules established in this project (do not silently revert these)
 
 1. **Color roles are fixed and non-negotiable:**
-   - `--ink` (`#1b1a18`) is the **only** CTA/interactive color. Every button,
-     link-as-button, and clickable control uses ink.
-   - `--blue` (`#45627a`, "Willow Blue") is **decoration only** — ampersands,
+   -  () is the **CTA/interactive color** (changed from ink on
+     Oct 12 at Audra's request: nav button, "Inquire about availability", collection
+     side arrows, "Send inquiry"). Every button and clickable control uses it.
+   -  () is primary text and dark backgrounds, no longer the CTA colour.
+   -  (, "Willow Blue") is **decoration only** — ampersands,
      the italic accent in headings, the eyebrow color. It must **never**
      appear on anything clickable.
-   - If you add a new button/CTA, it must be ink-filled (or ink-outlined on
-     a dark section, inverted to paper/ink), never blue.
 
 2. **No ambient/automatic motion, with exactly one explicit exception:**
    - No autoplay carousels, no scroll-reveal-on-load animations, no marquee
@@ -227,7 +227,7 @@ not two floating circles) + `.collection-body` (name, short desc, tag,
 --card: #f8f5ef         raised warm white (cards, letterbox fill)
 --ink: #1b1a18          ONLY CTA/interactive color, primary text
 --blue: #45627a         Willow Blue — decoration ONLY, never clickable
---blue-deep: #38505f
+--blue-deep: #38505f    CTA / interactive color
 --ash: #9e978b          secondary/muted text
 --line / --line-soft    hairline borders
 ```
