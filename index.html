@@ -452,7 +452,7 @@
   .zoom-overlay img {
     max-width: 92vw; max-height: 92vh;
     object-fit: contain;
-    user-select: none;
+    user-select: none; -webkit-user-drag: none;
     touch-action: pinch-zoom;
   }
   .zoom-close {
@@ -462,6 +462,19 @@
     background: none; border: none; padding: 0;
   }
   img.zoomable { cursor: zoom-in; }
+  .zoom-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 3rem; height: 3rem; border-radius: 50%;
+    background: rgba(241,236,228,0.12); color: #f1ece4; border: 1px solid rgba(241,236,228,0.55);
+    font-size: 1.6rem; line-height: 1; cursor: pointer;
+    display: none; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .zoom-arrow:hover { background: rgba(241,236,228,0.28); }
+  .zoom-arrow.prev { left: 1.5rem; }
+  .zoom-arrow.next { right: 1.5rem; }
+  .zoom-overlay.multi .zoom-arrow { display: flex; }
+  @media (hover: none) { .zoom-overlay.multi .zoom-arrow { display: none; } }
 </style>
 </head>
 <body>
@@ -995,7 +1008,9 @@
 
 <div class="zoom-overlay" id="zoomOverlay">
   <button class="zoom-close" id="zoomClose">×</button>
-  <img id="zoomImg" src="" alt="" />
+  <button class="zoom-arrow prev" id="zoomPrev" type="button" aria-label="Previous photo">&#8249;</button>
+  <img id="zoomImg" src="" alt="" draggable="false" />
+  <button class="zoom-arrow next" id="zoomNext" type="button" aria-label="Next photo">&#8250;</button>
 </div>
 <script>
 (function() {
@@ -1003,11 +1018,26 @@
   const zoomImg = document.getElementById('zoomImg');
   const zoomClose = document.getElementById('zoomClose');
 
-  function openZoom(src, alt) {
-    zoomImg.src = src;
-    zoomImg.alt = alt || '';
+  const zoomPrev = document.getElementById('zoomPrev');
+  const zoomNext = document.getElementById('zoomNext');
+  let group = [], idx = 0;
+
+  function show() {
+    const img = group[idx];
+    zoomImg.src = img.src;
+    zoomImg.alt = img.alt || '';
+  }
+  function openZoom(imgs, i) {
+    group = imgs; idx = i;
+    show();
+    overlay.classList.toggle('multi', group.length > 1);
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+  }
+  function step(d) {
+    if (group.length < 2) return;
+    idx = (idx + d + group.length) % group.length;
+    show();
   }
   function closeZoom() {
     overlay.classList.remove('active');
@@ -1019,17 +1049,40 @@
     if (e.target === overlay) closeZoom();
   });
   zoomClose.addEventListener('click', closeZoom);
+  zoomPrev.addEventListener('click', function(e) { e.stopPropagation(); step(-1); });
+  zoomNext.addEventListener('click', function(e) { e.stopPropagation(); step(1); });
   document.addEventListener('keydown', function(e) {
+    if (!overlay.classList.contains('active')) return;
     if (e.key === 'Escape') closeZoom();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
   });
 
-  // Make every real (non-placeholder) carousel image zoomable. Runs once on load —
-  // all markup is static, so there is nothing dynamic to poll for.
-  document.querySelectorAll('.carousel-track img, .hero-bg').forEach(function(img) {
-    img.classList.add('zoomable');
-    img.addEventListener('click', function() {
-      openZoom(this.src, this.alt);
+  // Swipe (touch) or drag (mouse) left/right inside the viewer to change photo.
+  let sx = 0, sy = 0, tracking = false;
+  overlay.addEventListener('pointerdown', function(e) {
+    if (e.target.closest('.zoom-arrow, .zoom-close')) return;
+    tracking = true; sx = e.clientX; sy = e.clientY;
+  });
+  overlay.addEventListener('pointerup', function(e) {
+    if (!tracking) return;
+    tracking = false;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+  });
+  overlay.addEventListener('pointercancel', function() { tracking = false; });
+
+  // Every real photo is zoomable; photos of the same collection card form one set.
+  document.querySelectorAll('.carousel-track').forEach(function(track) {
+    const imgs = Array.from(track.querySelectorAll('img'));
+    imgs.forEach(function(img, i) {
+      img.classList.add('zoomable');
+      img.addEventListener('click', function() { openZoom(imgs, i); });
     });
+  });
+  document.querySelectorAll('.hero-bg').forEach(function(img) {
+    img.classList.add('zoomable');
+    img.addEventListener('click', function() { openZoom([img], 0); });
   });
 })();
 </script>
