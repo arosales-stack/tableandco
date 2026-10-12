@@ -317,6 +317,8 @@
   .inquiry-detail { font-size: 1rem; color: var(--paper); display: flex; gap: 1.25rem; padding: 0.9rem 0; border-top: 1px solid rgba(241,236,228,0.14); }
   .inquiry-detail:last-child { border-bottom: 1px solid rgba(241,236,228,0.14); }
   .inquiry-detail span:first-child { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.76rem; color: var(--ash); min-width: 104px; margin-top: 0.15rem; }
+  .inquiry-link { color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(241,236,228,0.35); transition: border-color 0.2s; }
+  .inquiry-link:hover { border-color: var(--paper); }
   form { display: flex; flex-direction: column; gap: 1.1rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
   form input, form select, form textarea {
@@ -807,7 +809,7 @@
       <p>Tell us a little about your event and we'll be in touch within 48 hours with availability, collections that suit your vision, and a custom quote.</p>
       <div class="inquiry-details">
         <div class="inquiry-detail"><span>Location</span><span>Cypress &amp; Katy, TX · NW Houston</span></div>
-        <div class="inquiry-detail"><span>Instagram</span><span>@table.andcompany</span></div>
+        <div class="inquiry-detail"><span>Instagram</span><span><a class="inquiry-link" href="https://www.instagram.com/table.andcompany/" target="_blank" rel="noopener">@table.andcompany</a></span></div>
         <div class="inquiry-detail"><span>Response</span><span>Within 48 hours</span></div>
       </div>
     </div>
