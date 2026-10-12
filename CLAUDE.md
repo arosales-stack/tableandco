@@ -206,12 +206,12 @@ Don't rebuild it.
 
 | # | Name | Status |
 |---|------|--------|
-| 1 | Amberidge Collection | 6 real photos (green-rimmed floral china). Copy is placeholder again — Audra's red-transferware text belongs to The Rose Garden (swapped Oct 12). |
-| 2 | The Harvest Fête (brown transferware) | 5 real photos (brown transferware). Copy (16 place settings, stoneware/autumn) predates the photos; no text from Audra yet. |
-| 3 | Versailles Garland Collection | 4 real photos. Copy from Audra's text (Haviland & Co. Limoges, early 1900s, 65 pieces). Shown as "65 pieces", not place settings. |
-| 4 | Cherub Bleu Collection | 6 real photos. Copy from Audra's text (vintage blue & white, made in England; date unconfirmed so not shown). Place-settings count unconfirmed (earlier "10" was invented, removed). |
-| 5 | Garden Party Collection | 6 real photos. Copy/occasions from Audra's text ("mix & match", story still to be defined). Place-settings count unconfirmed. |
-| 6 | The Rose Garden Collection | 4 real photos (pink-bordered rose china). Copy from Audra's text for the red Woods Ware transferware (Staffordshire). Place-settings count unconfirmed. |
+| 1 | Amberidge Collection | 6 photos. Full copy from Audra (Oct 13): Wedgwood Columbia, 12 place settings, 1950-1960. |
+| 2 | The Harvest Fête | 5 photos. Full copy (Mason's Watteau, 12 settings, 1920-1940). |
+| 3 | Versailles Garland Collection | 4 photos. Full copy (Haviland Limoges, 8 settings, 65 pieces, circa 1900–1915). |
+| 4 | Cherub Bleu Collection | 6 photos. Full copy (Queen's Historic Royal Palaces, 12 settings, 1940). |
+| 5 | Garden Party Collection | 6 photos. Full copy (mix & match, up to 29 plates, 1910-1940). |
+| 6 | The Rose Garden Collection | 4 photos. Full copy (Wood & Sons Cambridge + Spode Billingsley Rose, 14 settings, circa 1907–1928). |
 
 Names follow Audra's OneDrive folders (Amberidge, Rose Garden, Cherub Bleu, Versailles Garland, Garden Party). Never touch the site without an explicit instruction from Audra.
 
