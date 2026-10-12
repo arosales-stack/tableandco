@@ -98,8 +98,9 @@ Brand voice rules (from the brand book):
 10. **Desktop collections-row nav = round ink side arrows only**
     (`.collections-side`, left/right of the photos). The "← Previous / Next →"
     text nav under the cards was removed at Audra's request — don't re-add it.
-    On desktop (≥901px) cards share rows via CSS subgrid (photo / title / text /
-    meta / details) so "Learn more" and the piece count align across cards.
+    On desktop (≥901px) only the opened card grows (cards are `align-items: flex-start`);
+    JS (`alignCollectionRows`) equalises title/text/meta heights so "Learn more" and the
+    piece count align across cards. Don't use subgrid: it makes every card grow together.
     Checkpoints strip is one line at ≥1200px; hero is `min-height: 100vh`.
     Instagram handle: **@table.andcompany**.
 

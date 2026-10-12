@@ -266,21 +266,10 @@
   .collections-side:disabled { opacity: 0.25; cursor: default; }
   .collections-side.prev { left: -3.5rem; }
   .collections-side.next { right: -3.5rem; }
+  /* Desktop: cards keep their own height (an opened card grows, the others stay closed).
+     JS equalises the title + text blocks so "Learn more" sits at the same height everywhere. */
   @media (min-width: 901px) {
-    .collections-grid {
-      display: grid; grid-auto-flow: column; grid-auto-columns: 300px;
-      grid-template-rows: auto auto auto auto auto;
-      column-gap: 1.75rem; row-gap: 0;
-    }
-    .collection-card {
-      display: grid; grid-row: span 5; grid-template-rows: subgrid;
-      row-gap: 0; min-width: 0; padding-bottom: 1.75rem;
-    }
-    .collection-body { display: contents; }
-    .collection-head { margin: 1.5rem 1.5rem 0.85rem; }
-    .collection-desc { margin: 0 1.5rem; }
-    .collection-meta { margin: 1.25rem 1.5rem 0; }
-    .collection-details { margin: 0 1.5rem; }
+    .collections-grid { align-items: flex-start; }
   }
   @media (max-width: 900px) { .collections-side { display: none; } }
 
@@ -960,6 +949,21 @@
   };
   // Desktop collections carousel — "Previous"/"Next" text controls scroll the row by one card,
   // and grey themselves out once there's nothing further to scroll to in that direction.
+  function alignCollectionRows() {
+    const cards = document.querySelectorAll('.collection-card');
+    const parts = ['.collection-head', '.collection-desc', '.collection-meta'];
+    parts.forEach(function(sel) {
+      const els = Array.from(cards).map(function(c) { return c.querySelector(sel); });
+      els.forEach(function(e) { e.style.minHeight = ''; });
+      if (window.innerWidth <= 900) return;
+      const max = Math.max.apply(null, els.map(function(e) { return e.getBoundingClientRect().height; }));
+      els.forEach(function(e) { e.style.minHeight = max + 'px'; });
+    });
+  }
+  window.addEventListener('resize', alignCollectionRows);
+  window.addEventListener('load', alignCollectionRows);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignCollectionRows);
+  alignCollectionRows();
   window.scrollCollections = function(dir) {
     const grid = document.getElementById('collectionsGrid');
     if (!grid) return;
