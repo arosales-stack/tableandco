@@ -27,11 +27,11 @@ Brand voice rules (from the brand book):
 ## Hard rules established in this project (do not silently revert these)
 
 1. **Color roles are fixed and non-negotiable:**
-   -  () is the **CTA/interactive color** (changed from ink on
+   - `--blue-deep` (`#38505f`) is the **CTA/interactive color** (changed from ink on
      Oct 12 at Audra's request: nav button, "Inquire about availability", collection
      side arrows, "Send inquiry"). Every button and clickable control uses it.
-   -  () is primary text and dark backgrounds, no longer the CTA colour.
-   -  (, "Willow Blue") is **decoration only** — ampersands,
+   - `--ink` (`#1b1a18`) is primary text and dark backgrounds, no longer the CTA colour.
+   - `--blue` (`#45627a`, "Willow Blue") is **decoration only** — ampersands,
      the italic accent in headings, the eyebrow color. It must **never**
      appear on anything clickable.
 
