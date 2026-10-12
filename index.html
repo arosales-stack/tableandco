@@ -74,7 +74,7 @@
   /* ---------- HERO ---------- */
   .hero {
     position: relative;
-    min-height: 92vh;
+    min-height: 100vh;
     display: flex; align-items: flex-end;
     background: var(--ink);
     overflow: hidden;
@@ -138,12 +138,16 @@
   }
   .checkpoints-inner {
     max-width: 1500px; margin: 0 auto;
-    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.75rem 2.25rem;
+    display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 1.75rem 2.25rem;
   }
   .checkpoint {
     display: flex; align-items: center; gap: 0.85rem;
     font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--paper);
+  }
+  @media (min-width: 1200px) {
+    .checkpoint { white-space: nowrap; font-size: clamp(0.74rem, 1.05vw, 0.9rem); letter-spacing: 0.08em; gap: 0.6rem; }
+    .checkpoints-inner { gap: 1rem; }
   }
   .checkpoint .check {
     font-family: "Bodoni Moda", serif; font-style: italic;
@@ -230,7 +234,7 @@
     font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--ink); background: none; border: none; padding: 0 0 0.2rem;
     cursor: pointer; border-bottom: 1px solid var(--line); transition: border-color 0.2s;
-    display: inline-flex; align-items: center; gap: 0.4rem;
+    display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; flex-shrink: 0;
   }
   .collection-learnmore:hover { border-color: var(--ink); }
   .learnmore-icon { font-size: 0.85rem; line-height: 1; }
@@ -255,6 +259,39 @@
   }
   /* On light sections every CTA is ink-filled, same as the nav button */
   .collections-section .btn-primary { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+
+  /* Desktop: every card shares the same rows (photo / title / text / meta / details),
+     so "Learn more" and the piece count sit at the same height on all cards,
+     whatever the length of the text above them. */
+  .collections-side {
+    position: absolute; top: 200px; z-index: 3;
+    width: 2.9rem; height: 2.9rem; border-radius: 50%;
+    background: var(--ink); color: var(--paper); border: 1px solid var(--ink);
+    font-size: 1.5rem; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.2s;
+  }
+  .collections-side:hover { opacity: 0.82; }
+  .collections-side:disabled { opacity: 0.25; cursor: default; }
+  .collections-side.prev { left: -3.5rem; }
+  .collections-side.next { right: -3.5rem; }
+  @media (min-width: 901px) {
+    .collections-grid {
+      display: grid; grid-auto-flow: column; grid-auto-columns: 300px;
+      grid-template-rows: auto auto auto auto auto;
+      column-gap: 1.75rem; row-gap: 0;
+    }
+    .collection-card {
+      display: grid; grid-row: span 5; grid-template-rows: subgrid;
+      row-gap: 0; min-width: 0; padding-bottom: 1.75rem;
+    }
+    .collection-body { display: contents; }
+    .collection-head { margin: 1.5rem 1.5rem 0.85rem; }
+    .collection-desc { margin: 0 1.5rem; }
+    .collection-meta { margin: 1.25rem 1.5rem 0; }
+    .collection-details { margin: 0 1.5rem; }
+  }
+  @media (max-width: 900px) { .collections-side { display: none; } }
 
   /* WHY */
   .why-section {
@@ -476,7 +513,7 @@
 <!-- CHECKPOINTS -->
 <div class="checkpoints-wrap">
   <div class="checkpoints-inner">
-    <div class="checkpoint"><span class="check">&amp;</span>Every piece inspected — no chips, no cracks</div>
+    <div class="checkpoint"><span class="check">&amp;</span>Every piece inspected</div>
     <div class="checkpoint"><span class="check">&amp;</span>Delivered, styled &amp; collected</div>
     <div class="checkpoint"><span class="check">&amp;</span>We wash every glass &amp; plate</div>
     <div class="checkpoint"><span class="check">&amp;</span>Rooted in Cypress &amp; Katy</div>
@@ -737,6 +774,8 @@
 
       </div>
       <div class="collections-fade" aria-hidden="true"></div>
+      <button class="collections-side prev" id="collectionsSidePrev" type="button" onclick="scrollCollections(-1)" aria-label="Previous collections">&#8249;</button>
+      <button class="collections-side next" id="collectionsSideNext" type="button" onclick="scrollCollections(1)" aria-label="Next collections">&#8250;</button>
     </div>
     <div class="collections-nav">
       <button class="collections-nav-btn" id="collectionsPrev" type="button" onclick="scrollCollections(-1)">&larr; Previous</button>
@@ -945,11 +984,15 @@
     const grid = document.getElementById('collectionsGrid');
     const prevBtn = document.getElementById('collectionsPrev');
     const nextBtn = document.getElementById('collectionsNext');
+    const sidePrev = document.getElementById('collectionsSidePrev');
+    const sideNext = document.getElementById('collectionsSideNext');
     if (!grid || !prevBtn || !nextBtn) return;
     function updateNavState() {
       const maxScroll = grid.scrollWidth - grid.clientWidth;
       prevBtn.disabled = grid.scrollLeft <= 4;
       nextBtn.disabled = grid.scrollLeft >= maxScroll - 4;
+      if (sidePrev) sidePrev.disabled = prevBtn.disabled;
+      if (sideNext) sideNext.disabled = nextBtn.disabled;
     }
     grid.addEventListener('scroll', updateNavState);
     window.addEventListener('resize', updateNavState);
