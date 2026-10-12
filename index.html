@@ -270,6 +270,9 @@
      JS equalises the title + text blocks so "Learn more" sits at the same height everywhere. */
   @media (min-width: 901px) {
     .collections-grid { align-items: flex-start; }
+    /* Desktop: the section already ends with one "Inquire about availability" CTA */
+    .collection-details-cta { display: none; }
+    .collection-details-extra { margin-bottom: 0; }
   }
   @media (max-width: 900px) { .collections-side { display: none; } }
 
