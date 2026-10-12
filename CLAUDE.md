@@ -107,6 +107,8 @@ Brand voice rules (from the brand book):
 
 Collection short descriptions (`.collection-desc`) are capped at 300 characters (Audra).
 
+Each collection's details panel has 4 fact rows in this order: Time period, Place settings (or Pieces), Best for, Style. Field limits (so text never breaks the layout): desc 300, tag 20, Time period 25, Place settings/Pieces 20, Best for 80, Style 50, extra paragraph 200. `.collection-details.expanded` max-height is 900px to fit worst-case text.
+
 ## Typography minimums (Audra: never make text tiny)
 
 Body copy >= 1rem, secondary text >= ~0.875rem, uppercase labels >= ~0.76rem,
