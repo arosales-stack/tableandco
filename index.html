@@ -321,7 +321,8 @@
   .inquiry-detail span:first-child { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.76rem; color: var(--ash); min-width: 104px; margin-top: 0.15rem; }
   .inquiry-link { color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(241,236,228,0.35); transition: border-color 0.2s; }
   .inquiry-link:hover { border-color: var(--paper); }
-  form { display: flex; flex-direction: column; gap: 1.1rem; }
+  form { display: flex; flex-direction: column; gap: 1.1rem; position: relative; }
+  .form-status { font-size: 1rem; color: var(--paper); line-height: 1.6; min-height: 1.6rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
   form input, form select, form textarea {
     width: 100%; padding: 0.95rem 1.1rem;
@@ -837,16 +838,20 @@
         <div class="inquiry-detail"><span>Response</span><span>Within 48 hours</span></div>
       </div>
     </div>
-    <form onsubmit="handleSubmit(event)">
+    <form onsubmit="handleSubmit(event)" action="https://formsubmit.co/hello@tableandco.co" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry — Table & Co." />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
       <div class="form-row">
-        <input type="text" placeholder="Your name" required />
-        <input type="email" placeholder="Email address" required />
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email address" required />
       </div>
       <div class="form-row">
-        <input type="date" required />
-        <input type="number" placeholder="Number of guests" min="1" required />
+        <input type="date" name="event_date" required />
+        <input type="number" name="guests" placeholder="Number of guests" min="1" required />
       </div>
-      <select>
+      <select name="occasion">
         <option value="" disabled selected>Type of occasion</option>
         <option>Dinner party</option>
         <option>Wedding reception</option>
@@ -855,8 +860,9 @@
         <option>Corporate event</option>
         <option>Other celebration</option>
       </select>
-      <textarea placeholder="Tell us about your vision — the mood, the colors, the feel you're going for..."></textarea>
+      <textarea name="message" placeholder="Tell us about your vision — the mood, the colors, the feel you're going for..."></textarea>
       <button type="submit" class="form-submit">Send inquiry →</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -870,13 +876,36 @@
 
 <script>
 
+  // Inquiry form -> FormSubmit (free) -> emailed to hello@tableandco.co
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = 'Inquiry sent — we\'ll be in touch soon';
-    btn.style.background = 'var(--ash)';
-    btn.style.color = 'var(--ink)';
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
+    const status = document.getElementById('formStatus');
+    const label = btn.textContent;
     btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.textContent = '';
+    fetch('https://formsubmit.co/ajax/hello@tableandco.co', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+      .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
+      .then(function(res) {
+        if (res.ok && String(res.data.success) === 'true') {
+          form.reset();
+          btn.textContent = 'Inquiry sent';
+          status.textContent = 'Thank you — we\'ll be in touch within 48 hours.';
+        } else {
+          throw new Error('send failed');
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = label;
+        status.innerHTML = 'Something went wrong. Please email us at <a class="inquiry-link" href="mailto:Hello@tableandco.co">Hello@tableandco.co</a>.';
+      });
   }
 </script>
 
