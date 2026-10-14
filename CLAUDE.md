@@ -182,10 +182,13 @@ the base64 itself).
 
 ## Site structure (`index.html`, single self-contained file)
 
-No build step, no framework, no separate asset files — everything
-(including every photo) is inline in one HTML file: inline `<style>`,
-inline `<script>`, images as `data:` URIs. This is deliberate; don't split
-it into multiple files or add a bundler unless explicitly asked.
+No build step, no framework. One `index.html` with inline `<style>` and
+inline `<script>`. **Photos live in `img/` as plain JPEG files** (moved out of
+the HTML on Oct 14 because the page was 11 MB and WhatsApp/Meta crawlers could
+not read it; the page is now ~110 KB). Only the favicon stays inline as a
+`data:` URI. Link preview image is `og-image.jpg` in the root (1200x630).
+Don't re-embed photos as base64 and don't add a bundler unless explicitly asked.
+The stripped-copy trick below is now rarely needed.
 
 Section order top to bottom:
 1. `<nav>` — fixed, logo + nav links (desktop only) + "Request a quote" CTA
