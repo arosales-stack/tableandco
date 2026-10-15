@@ -239,7 +239,14 @@ Typography: **Bodoni Moda** (serif, display/headings, italic for the
 ampersand/emphasis) + **Archivo** (sans, body/UI/labels), both via Google
 Fonts `<link>` tags.
 
-## Deployment: GitHub → Cloudflare Pages
+## Deployment: GitHub → Cloudflare (Workers Builds)
+
+> Update Oct 15: the live deploy is a Cloudflare **Worker** named `tableandco` (`wrangler.jsonc`,
+> `assets.directory ./`, `.assetsignore` hides repo files) built by Workers Builds from `main`; the
+> "Pages" wording below is the older description. Domain: `tableandco.co`. SEO files in root:
+> `robots.txt`, `sitemap.xml` (update `lastmod` when content changes). Business data (JSON-LD) in `<head>`
+> contains only confirmed facts: no address, phone, hours, rating, or reviews until Audra confirms them.
+
 
 - Repo: `arosales-stack/tableandco`, default branch `main`.
 - **Cloudflare Pages is connected directly to this GitHub repo** via
